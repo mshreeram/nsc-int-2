@@ -1,11 +1,14 @@
 p = 353
 g = 3
 
-A = int(pow(g, a, p))
-B = int(pow(g, b, p))
+priv_key_a = 97
+priv_key_b = 233
 
-ka = int(pow(B, a, p))
-kb = int(pow(A, b, p))
+pub_key_a = pow(g, priv_key_a, p)
+pub_key_b = pow(g, priv_key_b, p)
 
-print("Secret key at A(ka): ", str(ka))
-print("Secret key at B(kb)= ", str(kb))
+shared_key_a = pow(pub_key_b, priv_key_a, p)
+shared_key_b = pow(pub_key_a, priv_key_b, p)
+
+print("Secret key at A(ka): ", str(shared_key_a))
+print("Secret key at B(kb)= ", str(shared_key_b))
